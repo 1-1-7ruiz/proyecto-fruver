@@ -15,4 +15,6 @@ class classVenta(APIView):
         
         datos_jason=VentaSerializer(data,many=True)
         
-        return Response(datos_jason.data,status=HTTPStatus.OK)       
+        return Response(datos_jason.data,status=HTTPStatus.OK)
+    
+        

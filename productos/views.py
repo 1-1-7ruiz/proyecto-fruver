@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView, Response
 from django.http.response import JsonResponse
 from .models import *
-from serializars import *
+from .serializers import *
 from http import HTTPStatus
 from django.http import Http404
 
@@ -13,7 +13,7 @@ class classproductos1(APIView):
         
         datos_json=categoriaserializer(data,many=True)
         
-        return Response(datos_json.data,status=HTTPStatus.OK)
+        return JsonResponse(datos_json.data,status=HTTPStatus.OK)
     
     def post(self,request):
         if not all([

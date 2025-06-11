@@ -14,7 +14,7 @@ class Venta(models.Model):
 class Detalle_v(models.Model):
     venta=models.ForeignKey(Venta,models.DO_NOTHING)
     producto=models.ForeignKey(productos,models.DO_NOTHING)
-    cantidad=models.IntegerField(max_length=10,null=False)
+    cantidad=models.IntegerField(null=False)
     precio_u=models.DecimalField(max_digits=10,decimal_places=2)
     sub_total=models.DecimalField(max_digits=10,decimal_places=2)
     total=models.DecimalField(max_digits=10,decimal_places=2)

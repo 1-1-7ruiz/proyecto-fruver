@@ -14,7 +14,7 @@ class classUser(APIView):
         
         datos_json=UserSerializer(data,many=True)
         
-        return Response(datos_json.data,status=HTTPStatus.OK)
+        return JsonResponse(datos_json.data,status=HTTPStatus.OK,safe=False)
     
     def post(self,request):
         if not all([
