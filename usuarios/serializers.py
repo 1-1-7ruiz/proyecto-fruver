@@ -8,3 +8,13 @@ class UserSerializer(serializers.ModelSerializer):
         model= User
         
         fields= '__all__'
+        
+class GestionSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        
+        model= Gestion
+        
+        fields= '__all__'
+    
+    

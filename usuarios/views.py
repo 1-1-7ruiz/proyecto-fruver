@@ -10,11 +10,19 @@ from django.http import Http404
 class classUser(APIView):
     
     def get(self,request):
-        data= User.objects.all()
+        usuario= User.objects.all()
         
-        datos_json=UserSerializer(data,many=True)
+        usuario_serializado=UserSerializer(usuario,many=True)
         
-        return JsonResponse(datos_json.data,status=HTTPStatus.OK,safe=False)
+        rolPermisos=Gestion.objects.all()
+        
+        rol_serializado=GestionSerializer(rolPermisos,many=True)
+                
+        return Response({
+            "usuario":usuario_serializado.data,
+            "rol":rol_serializado.data
+            
+        },status=HTTPStatus.OK)
     
     def post(self,request):
         if not all([

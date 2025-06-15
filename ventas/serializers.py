@@ -8,3 +8,10 @@ class VentaSerializer(serializers.ModelSerializer):
         model= Venta
         
         fields= '__all__'
+
+class DetalleSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model= Detalle_v
+        
+        fields='__all__'

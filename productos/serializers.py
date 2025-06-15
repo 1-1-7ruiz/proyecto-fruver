@@ -3,5 +3,5 @@ from .models import *
 
 class categoriaserializer(serializers.ModelSerializer):
     class Meta:
-        model=productos
+        model=Productos
         fields= '_all_'
