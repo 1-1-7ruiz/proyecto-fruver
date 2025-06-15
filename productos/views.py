@@ -49,7 +49,7 @@ class classproductos2(APIView):
             Productos.objects.filter(id=id).update(nombre=request.data.get('nombre'),
                                                             stock=request.data.get('stock'),
                                                             precio=request.data.get('precio'))
-            return JsonResponse({"Estado":"ok","mensaje":"Usuario modificado correctamente"},status=HTTPStatus.OK)
+            return JsonResponse({"Estado":"ok","mensaje":"Producto modificado correctamente"},status=HTTPStatus.OK)
         except Productos.DoesNotExist:
             raise Http404
         
@@ -57,6 +57,6 @@ class classproductos2(APIView):
         try:
             usuario=Productos.objects.get(id=id)
             usuario.delete()
-            return JsonResponse({"Estado":"Ok","Mnesaje":"Usuario eliminado correctamente"},status=HTTPStatus.OK)
+            return JsonResponse({"Estado":"Ok","Mnesaje":"Producto eliminado correctamente"},status=HTTPStatus.OK)
         except  Productos.DoesNotExist:
             raise Http404
