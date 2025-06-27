@@ -10,11 +10,26 @@ class Gestion(models.Model):
     slug= AutoSlugField(populate_from='rol')
     
 class User(models.Model):
+    id_rol=models.ForeignKey(Gestion,on_delete=models.DO_NOTHING)
     documento=models.CharField(max_length=50,primary_key=True)
-    nombre_completo=models.CharField(max_length=50,null=False)
-    fecha_nacimiento=models.CharField(max_length=50,null=False)
+    nombres=models.CharField(max_length=50,null=True)
+    apellidos=models.CharField(max_length=50,null=True)
+    fecha_nacimiento=models.DateField(max_length=50,null=False)
     telefono=models.CharField(max_length=50,null=False)
     email=models.EmailField(max_length=100,null=False)
     direccion=models.CharField(max_length=100,null=False)
-    id_rol=models.ForeignKey(Gestion,on_delete=models.DO_NOTHING)
-    slug= AutoSlugField(populate_from='nombre_completo')
+    estado=models.CharField(max_length=100, choices=[("Activo","Activo"),("Inactivo","Inactivo")],null=False)
+    slug= AutoSlugField(populate_from='nombres')
+    contraseña=models.CharField(max_length=100,null=False)
+    
+    def __str__(self):
+        return self.nombres
+    
+    class Meta:
+        db_table='usuarios'
+        
+        verbose_name= 'usuario'
+        
+        verbose_name_plural='usuarios'
+    
+    

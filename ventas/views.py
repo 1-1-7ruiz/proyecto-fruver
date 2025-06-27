@@ -27,6 +27,13 @@ class classVenta(APIView):
         detalles = request.data.get('detalles')
         
         #validaciones
+        
+        if not ventas or not detalles:
+            return JsonResponse({
+                "estado": "error",
+                "mensaje": "Debe incluir ventas y detalles"
+            }, status=HTTPStatus.BAD_REQUEST)
+        
         camposRequeridos_venta = {
             "metodo_pago":"El campo metodo de pago es obligatorio",
             "documento":"El campo metodo de pago es obligatorio"
@@ -60,11 +67,7 @@ class classVenta(APIView):
         
         
 
-        if not ventas or not detalles:
-            return JsonResponse({
-                "estado": "error",
-                "mensaje": "Debe incluir ventas y detalles"
-            }, status=HTTPStatus.BAD_REQUEST)
+        
 
         try:
             # Procesar la venta

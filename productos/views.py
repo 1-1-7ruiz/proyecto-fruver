@@ -5,15 +5,18 @@ from .models import *
 from .serializers import *
 from http import HTTPStatus
 from django.http import Http404
+from datetime import datetime
+import os
+from django.core.files.storage import FileSystemStorage
 
 class classproductos1(APIView):
     
     def get(self,request):
         data=Productos.objects.all()
         
-        datos_json=categoriaserializer(data,many=True)
+        datos_json=Productoserializer(data,many=True)
         
-        return JsonResponse(datos_json.data,status=HTTPStatus.OK)
+        return Response(datos_json.data,status=HTTPStatus.OK)
     
     def post(self,request):
         if not all([
@@ -23,19 +26,40 @@ class classproductos1(APIView):
             
         ]):
             return JsonResponse({"Estado":"error","mensaje":"Todos los parametros deben ir llenos"},status=HTTPStatus.BAD_REQUEST)
+        
+        fs=FileSystemStorage()
         try:
-            Productos.objects.create(nombre=request.data['nombre'],stock=request.data['stock'],precio=request.data['precio'])
+            archivo = request.FILES['foto']
+            extension = os.path.splitext(archivo.name)[1]  # obtiene ".jpg" por ejemplo
+            foto = f"{datetime.timestamp(datetime.now())}{extension}"
+        except Exception as e:
+            return JsonResponse({
+                "estado": "error",
+                "mensaje": "Debe adjuntar una foto en el campo files"
+    }, status=HTTPStatus.BAD_REQUEST)
+        
+        if request.FILES["foto"].content_type=="image/jpeg" or request.FILES["foto"].content_type=="image/png":
+        
+            try:
+                fs.save(f"productos/{foto}",request.FILES['foto'])
+                fs.url(request.FILES['foto'])
+            except Exception as e:
+                return JsonResponse({"estado":"error","mensaje":"se produjo un error al intentar subir el archivo"},status=HTTPStatus.BAD_REQUEST)
+                
+                
+        
+        try:
+            Productos.objects.create(nombre=request.data['nombre'],
+                                    stock=request.data['stock'],
+                                    precio=request.data['precio'],
+                                    categoria_id=request.data['categoria'],
+                                    foto= foto)
             return JsonResponse({"estado":"ok","mensaje":"se creo el registro correctamente"},status=HTTPStatus.CREATED)
         except Exception as e:
             raise Http404
 
 class classproductos2(APIView):
-    def get(self,request,id):
-        try:
-            data=Productos.objects.filter(id=id).get()
-            return JsonResponse({"data":{"id":data.id,"nombre":data.nombre,"stock":data.stock,"precio":data.precio}},status=HTTPStatus.OK)
-        except Productos.DoesNotExist:
-            raise Http404
+    
         
     def put(self,request,id):
         
@@ -48,7 +72,8 @@ class classproductos2(APIView):
         try:
             Productos.objects.filter(id=id).update(nombre=request.data.get('nombre'),
                                                             stock=request.data.get('stock'),
-                                                            precio=request.data.get('precio'))
+                                                            precio=request.data.get('precio'),
+                                                            categoria_id=request.data.get('categoria'))
             return JsonResponse({"Estado":"ok","mensaje":"Producto modificado correctamente"},status=HTTPStatus.OK)
         except Productos.DoesNotExist:
             raise Http404

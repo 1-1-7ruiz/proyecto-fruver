@@ -33,7 +33,9 @@ INSTALLED_APPS = [
     'ventas',
     'categorias',
     'productos',
-    'corsheaders'
+    'corsheaders',
+    'contacto',
+    'seguridad',
 ]
 
 MIDDLEWARE = [
@@ -46,6 +48,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'backend.urls'
 
@@ -119,9 +123,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'assets/'
+MEDIA_ROOT= os.path.join(BASE_DIR,'uploads')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+EMAIL_BAKEND=os.getenv('EMAIL_BAKEND')
+EMAIL_HOST=os.getenv('EMAIL_HOST')
+EMAIL_USE_TLS=os.getenv('EMAIL_USE_TLS')=='True'
+EMAIL_PORT=int(os.getenv('EMAIL_PORT'))
+EMAIL_HOST_USER=os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD=os.getenv('EMAIL_HOST_PASSWORD')
+
+

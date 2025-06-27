@@ -12,6 +12,15 @@ class Venta(models.Model):
     total=models.DecimalField(max_digits=10,decimal_places=2,default=0)
     
     
+    class Meta:
+        
+        db_table='venta'
+        
+        verbose_name='venta'
+        
+        verbose_name_plural= 'ventas'
+    
+    
 class Detalle_v(models.Model):
     venta=models.ForeignKey(Venta,models.DO_NOTHING)
     producto=models.ForeignKey(Productos,models.DO_NOTHING)
@@ -34,3 +43,11 @@ class Detalle_v(models.Model):
             
         self.venta.total=total_venta
         self.venta.save()
+        
+    class Meta:
+        
+        db_table='detalle_venta'
+        
+        verbose_name='detalle_ventas'
+        
+        verbose_name_plural= 'detalle_ventas'
