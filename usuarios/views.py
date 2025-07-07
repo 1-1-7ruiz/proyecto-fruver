@@ -65,7 +65,7 @@ class classUser(APIView):
         try:
             rol = Gestion.objects.get(rol=request.data['id_rol'])
             print(request.data)
-            User.objects.create(documento=request.data['documento'],
+            nuevo_usuario=User.objects.create(documento=request.data['documento'],
                                 nombres=request.data['nombres'],
                                 apellidos=request.data['apellidos'],
                                 fecha_nacimiento=request.data['fecha_nacimiento'],
@@ -75,7 +75,14 @@ class classUser(APIView):
                                 estado=request.data['estado'],
                                 id_rol=rol,
                                 contraseña=request.data['contraseña'])
-            return JsonResponse({"Estado":"ok","Mensaje":"Usuario añadido con exito"},status=HTTPStatus.CREATED)
+            return JsonResponse({
+            "documento": nuevo_usuario.documento,
+            "nombres": nuevo_usuario.nombres,
+            "apellidos": nuevo_usuario.apellidos,
+            "email": nuevo_usuario.email,
+            "estado": nuevo_usuario.estado,
+            "id_rol": nuevo_usuario.id_rol.rol  
+}, status=HTTPStatus.CREATED)
         except Exception as e:
             
             raise Http404
@@ -86,8 +93,8 @@ class classdeletePut(APIView):
             dato=User.objects.filter(documento=documento).get()
             
             return JsonResponse({"data": {"documento":dato.documento,
-                                        "nombre completo":dato.nombres,
-                                        "nombre completo":dato.apellidos,
+                                        "nombres":dato.nombres,
+                                        "apellidos":dato.apellidos,
                                         "fecha nacimiento":dato.fecha_nacimiento,
                                         "telefono":dato.telefono,
                                         "email":dato.email,

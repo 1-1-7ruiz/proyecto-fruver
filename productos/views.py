@@ -8,6 +8,7 @@ from django.http import Http404
 from datetime import datetime
 import os
 from django.core.files.storage import FileSystemStorage
+from seguridad.decorators import logueado
 
 class classproductos1(APIView):
     
@@ -18,6 +19,7 @@ class classproductos1(APIView):
         
         return Response(datos_json.data,status=HTTPStatus.OK)
     
+    @logueado()
     def post(self,request):
         if not all([
             request.data.get('nombre'),
@@ -60,7 +62,7 @@ class classproductos1(APIView):
 
 class classproductos2(APIView):
     
-        
+    @logueado()    
     def put(self,request,id):
         
         if not all([
@@ -77,7 +79,8 @@ class classproductos2(APIView):
             return JsonResponse({"Estado":"ok","mensaje":"Producto modificado correctamente"},status=HTTPStatus.OK)
         except Productos.DoesNotExist:
             raise Http404
-        
+    
+    @logueado()    
     def delete(self,request,id):
         try:
             usuario=Productos.objects.get(id=id)
