@@ -5,20 +5,19 @@ from autoslug import AutoSlugField
 
 
 class Gestion(models.Model):
-    rol=models.CharField(max_length=20,primary_key=True)
+    rol=models.CharField(max_length=20,primary_key=True,choices=[("cliente","cliente"),("admin","admin")])
     permisos=models.CharField(max_length=50,null=False)
     slug= AutoSlugField(populate_from='rol')
     
-class User(models.Model):
+class Users(models.Model):
     id_rol=models.ForeignKey(Gestion,on_delete=models.DO_NOTHING)
     documento=models.CharField(max_length=50,primary_key=True)
     nombres=models.CharField(max_length=50,null=True)
     apellidos=models.CharField(max_length=50,null=True)
-    fecha_nacimiento=models.DateField(max_length=50,null=False)
     telefono=models.CharField(max_length=50,null=False)
     email=models.EmailField(max_length=100,null=False)
     direccion=models.CharField(max_length=100,null=False)
-    estado=models.CharField(max_length=100, choices=[("Activo","Activo"),("Inactivo","Inactivo")],null=False)
+    estado=models.CharField(max_length=100,default="Inactivo", choices=[("Activo","Activo"),("Inactivo","Inactivo")],null=False)
     slug= AutoSlugField(populate_from='nombres')
     contraseña=models.CharField(max_length=100,null=False)
     

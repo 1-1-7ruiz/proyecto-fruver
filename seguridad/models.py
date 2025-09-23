@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class UserMetadataU(models.Model):
     user=models.ForeignKey(User,models.DO_NOTHING)
     token= models.CharField(max_length=100,blank=True,null=True)
-    
+    expiracion = models.DateTimeField(null=True)
     
     def __str__(self) -> str:
         return f"{self.first_user} {self.last_name}"

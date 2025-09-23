@@ -16,10 +16,10 @@ def logueado(): #devuelve una funcion interna que hace todo el trabajo
         def _decorator(*args, **kwargs):
             # args[0] = self (la vista)
             #args[1]= request
-            request=args[1]
+            request=args[0]
             
             #acepta tokens enviados desde clientes que usan META
-            token_header=request.headers.get('autorization') or request.META.get("HTTP_AUTORIZATION")
+            token_header=request.headers.get('Authorization') or request.META.get("HTTP_AUTHORIZATION")
             
             if not token_header:
                 return JsonResponse ({"Estado":"Error",

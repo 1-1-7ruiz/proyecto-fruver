@@ -27,28 +27,37 @@ class Carrito1(APIView):
         return JsonResponse({"data": serializer.data}, status=HTTPStatus.OK)
 
     def post(self, request):
-        producto_id = request.data.get("producto_id")
-        cantidad = int(request.data.get("cantidad", 1))
-
-        if not producto_id or not cantidad:
-            return JsonResponse({"estado": "error", "mensaje": "El campo producto_id es obligatorio"}, status=HTTPStatus.BAD_REQUEST)
-
         try:
-            producto = Productos.objects.get(id=producto_id)
-        except Productos.DoesNotExist:
-            return JsonResponse({"estado": "error", "mensaje": "El producto no existe"}, status=HTTPStatus.NOT_FOUND)
+            data = request.data if isinstance(request.data, dict) else json.loads(request.body)
+            productos = data.get("productos", [])
 
-        carrito = self.get_carrito(request)
-        item, creado = itemcarrito.objects.get_or_create(carrito=carrito, producto=producto)
+            if not productos:
+                return JsonResponse({"estado": "error", "mensaje": "No se recibieron productos"}, status=HTTPStatus.BAD_REQUEST)
 
-        if not creado:
-            item.cantidad += cantidad
-        else:
-            item.cantidad = cantidad
+            carrito = self.get_carrito(request)
 
-        item.save()
+            for producto_data in productos:
+                nombre = producto_data.get("nombre")
+                cantidad = int(producto_data.get("cantidad", 1))
 
-        return JsonResponse({"estado": "ok", "mensaje": "Producto agregado"}, status=HTTPStatus.CREATED)
+                try:
+                    producto = Productos.objects.get(nombre__iexact=nombre)
+                except Productos.DoesNotExist:
+                    continue  # o manejar como error
+
+                item, creado = itemcarrito.objects.get_or_create(carrito=carrito, producto=producto)
+                if not creado:
+                    item.cantidad += cantidad
+                else:
+                    item.cantidad = cantidad
+
+                item.save()
+
+            return JsonResponse({"estado": "ok", "mensaje": "Productos agregados al carrito"}, status=HTTPStatus.CREATED)
+
+        except Exception as e:
+            return JsonResponse({"estado": "error", "mensaje": str(e)}, status=HTTPStatus.INTERNAL_SERVER_ERROR)
+
     
 # Clase para manejar ítems del carrito por ID
 class Carrito2(APIView):

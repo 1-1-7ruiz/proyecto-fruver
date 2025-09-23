@@ -13,7 +13,7 @@ class class1(APIView):
     def post(self,request):
         
         campos_requeridos={
-            "nombre":"El nombre es reuqerisdo",
+            "nombre":"El nombre es requerido",
             "email":"El E-mail es requerido",
             "telefono":"El telefono es requerido",
             "mensaje":"el mensaje es requerido"
@@ -46,7 +46,7 @@ class class1(APIView):
                     
                 </ul>
             """
-            utilidades.sendMail(html,"Mensaje desede le sitio web","fruverproyecto072@gmail.com")
+            utilidades.sendMail(html,"Mensaje desde le sitio web","fruverproyecto072@gmail.com")
         
         except Exception as e:
             print("Error al enviar el correo",e)

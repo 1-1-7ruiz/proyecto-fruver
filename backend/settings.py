@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 load_dotenv() #cargar variables de entorno desde el archivo .env
 import os
 
+from datetime import timedelta
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -17,7 +19,7 @@ SECRET_KEY = 'django-insecure-yd7a_89lrh96v#!0s6*u4*0^qu_s5xu^43_n$^r(nlt57*9!p#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -49,6 +51,17 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=12),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+}
+
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -125,6 +138,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'assets/'
+
+MEDIA_URL = '/media/'
 MEDIA_ROOT= os.path.join(BASE_DIR,'uploads')
 
 # Default primary key field type
@@ -134,7 +149,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-EMAIL_BAKEND=os.getenv('EMAIL_BAKEND')
+EMAIL_BAKEND=os.getenv('EMAIL_BACKEND')
 EMAIL_HOST=os.getenv('EMAIL_HOST')
 EMAIL_USE_TLS=os.getenv('EMAIL_USE_TLS')=='True'
 EMAIL_PORT=int(os.getenv('EMAIL_PORT'))

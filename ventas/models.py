@@ -1,12 +1,12 @@
 from django.db import models
 from autoslug import AutoSlugField
-from usuarios.models import User
+from usuarios.models import Users
 from productos.models import *
 
 # Create your models here.
 
 class Venta(models.Model):
-    documento=models.ForeignKey(User,models.DO_NOTHING)
+    documento=models.ForeignKey(Users,models.DO_NOTHING)
     fecha_venta=models.DateField(auto_now_add=True)
     metodo_pago=models.CharField(max_length=50,null=False)
     total=models.DecimalField(max_digits=10,decimal_places=2,default=0)
