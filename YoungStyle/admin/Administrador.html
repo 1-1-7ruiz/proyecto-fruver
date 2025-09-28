@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - FRUVERSYS</title>
+    <link rel="stylesheet" href="administrador.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body class="administrador">
+
+    <header class="header">
+        <div class="logo">
+            <img src="../Img/logo.jpg" alt="Logo" width="50" height="60" />
+            <h1>FRUVERSTYLE / Administrador</h1>
+
+        </div>
+    </header>
+    
+    <label>
+        <input type="checkbox">
+        <div class="toggle">
+            <span class="top_line common"></span>
+            <span class="middle_line common"></span>
+            <span class="bottom_line common"></span>
+        </div>
+        <div class="slide">
+            <h1>MENU</h1>
+            <ul>
+                <li><a href="Administrador.html"><i class='bx bxs-home'></i>Inicio</a></li>
+                <li><a href="perfil.html"><i class='bx bxs-user'></i>Perfil</a></li>
+                
+            </ul>
+
+            <h1>ACCIÓNES</h1>
+            <ul>
+                <li><p id="cerrar_sesion"><i class='bx bxs-log-out'></i>Cerrar sesión</p></li>
+            </ul>
+        </div>
+    </label>
+
+    <main id="contenido">
+        <section class="bienvenida">
+            <h2>Bienvenido al Panel de Administración</h2>
+            <p>En este panel podras gestionar usuarios, productos y ventas.</p>
+        </section>
+
+    
+        <section class="tarjetas">
+            <div class="tarjeta tarjeta-usuarios">
+                <i class='bx bxs-user'></i>
+                <h3>Usuarios</h3>
+                <p>Gestiona y administra los usuarios del sistema.</p>
+                <a href="usuarios.html" class="btn">Ir a Usuarios</a>
+            </div>
+            <div class="tarjeta tarjeta-productos">
+                <i class='bx bxs-pear'></i>
+                <h3>Productos</h3>
+                <p>Controla el inventario y precios de los productos.</p>
+                <a href="productos.html" class="btn">Ir a Productos</a>
+            </div>
+            <div class="tarjeta tarjeta-ventas">
+                <i class='bx bxl-venmo'></i>
+                <h3>Ventas</h3>
+                <p>Consulta y analiza las ventas registradas.</p>
+                <a href="ventas.html" class="btn">Ir a Ventas</a>
+            </div>
+        </section>
+
+      
+        <section class="actividad-reciente">
+            <h3>Resumen rápido</h3>
+            <ul>
+                <li id="contador">Usuarios registrados: <strong>0</strong></li>
+                <li id="contador_p">Productos en inventario: <strong>0</strong></li>
+                <li id="contador_v">Suma total de ventas: <strong>0</strong></li>
+                <li id="venta_mensual">Ventas de este mes: <strong>0</strong></li>
+            </ul>
+        </section>
+
+        
+    </main>
+
+    <footer>Usuarios</footer>
+    <script src="administrador.js"></script>
+
+</body>
+</html>

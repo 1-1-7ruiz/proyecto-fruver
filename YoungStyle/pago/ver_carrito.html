@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ver_carrito.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+    <header id="encabezado">
+        <img id="logo" src="../Img/logo.jpg" alt="" width="50" height="60">
+        <h5>FRUVERSTYLE</h5>
+        <p id="inicio"><a href="../principal/principal.html">Inicio</a></p>
+        <p id="sobre_nosotros"><a href="../quienes_somos/nuestra_historia.html">Sobre Nosotros</a></p>
+        <button id="usuario_opciones" class="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="0" fill="currentColor" stroke="currentColor" class="icon">
+        <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"></path>
+        </svg>
+        </button>
+    </header>
+    <nav class="navegador">
+        <section id="carro">Carro de compras</section>
+        <section id="gestion_pro" style="display: none;">Gestionar pedido</section>
+        <section id="realizar_pago "style="display: none;">Realizar pago</section>
+    </nav>
+
+     <button id="atras" class="card-button material-symbols-outlined" onclick="window.location.href='../principal/principal.html'">arrow_back</button>
+
+    <div id="contenedor2">
+    
+    <div class="encabezado2">
+        <div class="col-nombre">Nombre</div>
+        <div class="col-precio">Precio</div>
+        <div class="col-stock">Cantidad</div>
+        <div class="modificar">Eliminar producto</div>
+    </div>
+
+    
+     <div class="total-box">
+   <p>Total compra: <span class="precio">$ 0</span></p>
+</div>
+    </div>
+   <button id="gestion_pe">Realizar pago</button>
+
+
+<!-- Modal Carrito -->
+    <div id="carrito_v" class="ventana overlay" style="display: none;">
+    <div class="ventana-contenido carrito-contenido">
+    <div class="carrito-header">
+        <span></span>
+        <a href="../pago/ver_carrito.html">Ver carrito</a>
+        <span class="oculto-carrito">&times;</span>
+        </div>
+        <div class="carrito-items">
+        <div class="producto">
+            
+            
+        </div>
+        <!-- Repite productos aquí -->
+        </div>
+        <div class="carrito-total">
+        <p>Total: <strong>$19.500</strong></p>
+        <button class="btn-comprar" onclick="enviarCarritoAlBackend()">Comprar</button>
+
+        </div>
+    </div>
+    </div>
+    
+        <div id="usuario_v" class="ventana overlay" style="display: none;">
+            <div class="ventana-contenido">
+            <div id="logo_user">
+                <span class="oculto">&times;</span>
+            </div>
+            <div class="opciones">
+                <div id="usuario_o">
+                <button id="iniciar_sesion" class="btn-usuario"><a href="../sesion/sesion_cliente.html">Iniciar sesión</a></button>
+                <button id="registrarse" class="btn-usuario"><a href="../sesion/registrarse.html">Registrarse</a></button>
+                </div>
+                <div id="usuario_o2">
+                <h3>Cliente</h3>
+                <button id="Configuraciones" class="btn-usuario"><a href="../principal/mis_datos.html">Mis datos -></a></button>
+                
+                <h3>o</h3>
+                <button id="cerrar_sesion" class="btn-usuario"><a href="../principal/principal.html">Cerrar sesion</a></button>
+                </div>
+            </div>
+            </div>
+        </div>
+    
+     <footer class="footer">
+    <div class="footer-section contacto">
+        <p><strong>CONTACTO</strong></p>
+        <p>3023849326</p>
+        <p>inversionescamfruver@gmail.com</p>
+    </div>
+
+    <div class="footer-section redes">
+        <p><strong>Síguenos en:</strong></p>
+        <img src="../Img/Instagram.jpg" alt="Instagram" width="40" height="40">
+        <img src="../Img/Facebook.jpg" alt="Facebook" width="40" height="40">
+    </div>
+
+    <div class="footer-section direccion">
+        <p><strong>DIRECCIÓN</strong></p>
+        <p>Parque principal Fredonia-Antioquia</p>
+    </div>
+</footer>
+    
+
+
+<script src="ver_carrito.js"></script>
+</body>
+</html>

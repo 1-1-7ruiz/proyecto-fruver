@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ventas</title>
+  <link rel="stylesheet" href="ventas.css"/>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="header">
+    <div class="logo">
+        <img src="../Img/logo.jpg" alt="Logo" width="50" height="60" />
+        <h1>FRUVERSTYLE</h1>
+    </div>
+    
+    </div>
+  </header>
+    <label>
+        <input type="checkbox">
+        <div class="toggle">
+            <span class="top_line common"></span>
+            <span class="middle_line common"></span>
+            <span class="bottom_line common"></span>
+        </div>
+        <div class="slide">
+            <h1>MENU</h1>
+            <ul>
+                
+                <li><a href="Administrador.html"><i class='bx bxs-home'></i>Inicio</a></li>
+                <li><a href="perfil.html"><i class='bx bxs-user'></i>Perfil</a></li>
+                <li><a href="usuarios.html"><i class='bx bxs-user-badge'></i>Usuarios</a></li>
+                <li><a href="productos.html"><i class='bx bxs-pear'></i>Productos</a></li>
+                <li><a href="ventas.html"><i class='bx bxl-venmo' ></i>Ventas</a></li>
+            </ul>
+
+            <h1>ACCIÓNES</h1>
+            <ul>
+                
+                
+                <li><p id="filtrar_v"><i class='bx bx-filter' ></i>Filtrar</p></li>
+                <li><p id="cerrar_sesion"><i class='bx bxs-log-out'></i>Cerrar sesión</p></li>
+            </ul>
+
+            
+            </div>
+    </label>
+    <main class="contenedor-tabla">
+        
+            <table class="tabla-venta">
+                <thead>
+                <tr>
+                
+                <th>Consecutivo</th>
+                <th>Cliente</th>
+                <th>ID Cliente</th>
+                <th>Fecha</th>
+                <th>Total venta</th>
+                </tr>
+            </thead>
+            <tbody id="ventas-body">
+                
+            </tbody>
+            </table>
+        
+        </main>
+
+
+<div id="modal-consecutivo" class="modal-consecutivo">
+    <span id="cerrar-modal" class="oculto">&times;</span>
+    <h1 class="detalle">Detalle de venta</h1>
+    <div id="ventana-contenido">
+        
+        <h3 style="text-align:center">FRUVERSYS</h3>
+        <p><strong>Consecutivo: </strong>1</p>
+        <p><strong>Tel: </strong>3102412110</p>
+        <table class="tabla-venta">
+        <thead>
+            <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio unitario</th>
+            <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="detalle-body">
+            
+        </tbody>
+        </table>
+        <p id="total_V"><strong>Total a pagar:</strong> $</p>
+        <div style="display:flex; justify-content: space-around; margin-top:20px;">
+        <button class="cancelar" style="background:red; color:white;">Cancelar</button>
+        <button class="descargar" id="btnDescargarPDF" style="background:green; color:white;">Descargar</button>
+
+        </div>
+    </div>
+</div>
+    
+
+
+    <footer>Mis ventas</footer>
+
+    
+
+    <div id="modal-busqueda-avanzada" class="overlay">
+    <div class="ventana-contenido">
+        <span id="cerrar-busqueda">&times;</span>
+        <h2>Búsqueda avanzada de ventas</h2>
+
+        <label>Cliente:
+        <input type="text" id="nombre_cliente" placeholder="Nombre cliente" />
+        </label>
+        <label>ID Cliente:
+        <input type="text" id="id_cliente" placeholder="Documento" />
+        </label>
+        <label>Fecha exacta:
+        <input type="date" id="fechaVenta" />
+        </label>
+        <label>Rango de fechas:
+        <input type="date" id="fechaDesde" />
+        <input type="date" id="fechaHasta" />
+        </label>
+
+        <div class="acciones">
+        <button id="btnBuscarAvanzada">Buscar</button>
+        <button id="btnLimpiarFiltros">Limpiar</button>
+        </div>
+    </div>
+    </div>
+
+    <script src="ventas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</body>
+</html>

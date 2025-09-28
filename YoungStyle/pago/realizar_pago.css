@@ -1,0 +1,574 @@
+/* ========== ESTILOS BASE ========== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
+  min-height: 100svh;
+}
+
+#encabezado {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #B4DCB0;
+  border-bottom: 1px solid black;
+}
+
+#encabezado a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.button {
+  outline: 0;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: rgb(124, 180, 98);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px,
+              rgba(33, 78, 7, 0.5) 5px 10px 15px;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.navegador {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 90%;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 25px;
+  background-color: #e9f5e9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navegador section {
+  flex: 1 1 250px;
+  max-width: 300px;
+  padding: 10px 15px;
+  border-radius: 13px;
+  border: 1px solid black;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-block;
+    padding: 8px 14px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+#fondo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 10px 5%;
+}
+
+/* ========== FORMAS DE PAGO ========== */
+.formas_pago {
+  flex: 1 2 500px;
+  max-width: 2000px;
+  margin-right: 20%;
+}
+
+.formas_pago h1 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.formas_pago p {
+  margin: 80px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.formas_pago img {
+  width: 25px;
+  margin-right: 10px;
+}
+
+.circle {
+  width: 15px;
+  height: 15px;
+  border: 2px solid gray;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
+
+.circle.seleccionado {
+  background-color: green;
+}
+
+#siguiente {
+  background-color: gray;
+  color: white;
+  display: block;
+  margin: 40px auto 0;
+  padding: 12px 25px;
+  border: none;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-left: 100%;
+}
+
+#siguiente.activo {
+  background-color: darkgreen;
+}
+
+#siguiente:hover:not(:disabled) {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ========== TOTAL COMPRA ========== */
+#total_compra {
+  flex: 1 1 300px;
+  max-width: 400px;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 20px;
+  box-shadow: -10px 0px 10px -5px #4CAF50, 10px 0px 10px -5px #4CAF50;
+  backdrop-filter: blur(8px);
+  text-align: center;
+  margin-right: 10%;
+  margin-top: 5%;
+}
+
+.total-box {
+  font-weight: bold;
+}
+
+.total-box .precio {
+  color: #2e7d32;
+}
+
+#total_compra button {
+  width: 70%;
+  margin: 20px auto 0;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  background-color: #41A937;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#total_compra button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+#total_compra button a {
+  text-decoration: none;
+  color: white;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #41A937;
+  color: white;
+  padding: 20px;
+  border-top: 5px solid #2d7523;
+  flex-wrap: wrap;
+  margin-top: 10%;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.footer-section p,
+.footer-section a {
+  margin: 5px 0;
+  color: white;
+  text-decoration: none;
+}
+
+.footer-section img {
+  margin: 5px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: white;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #fondo {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .formas_pago, #total_compra {
+    width: 80%;
+    max-width: 95%;
+    margin: 10px 0;
+    height: auto !important;
+  }
+
+  .formas_pago p {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .formas_pago h1 {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  #siguiente {
+    margin-left: 0;
+  }
+}
+
+
+/* ========== Ventada pse ========== */
+
+
+#modal-pse .formas_pago {
+  width: 600px;
+  max-width: 90%;
+  margin: 5% auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+
+.formas_pago img{
+    width: 25px;
+    margin-left: 60px;
+    margin-top: 30px;
+    
+}
+
+.formas_pago h3{
+    margin-left: 50px;
+    border-bottom: 1px solid black;
+    width: 800px;
+}
+
+.formas_pago h4{
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+.formas_pago #dato1{
+    width: 250px;
+    height: 30px;
+    margin-left: 40px;
+    border-radius: 50px;
+    text-align: center;
+ 
+}
+
+
+
+.formas_pago #dato2{
+    width: 250px;
+    height: 30px;
+    margin-left: 40px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+
+#nombre{
+  margin-left: 40px;
+    width: 250px;
+    height: 25px;
+    margin-left: 40px;
+    border-radius: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#apellido{
+    width: 250px;
+    height: 25px;
+    margin-left: 40px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+#tipo_documento{
+    width: 80px;
+    height: 25px;
+    margin-left: 40px;
+    border-radius: 50px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#cc{
+    width: 300px;
+    height: 25px;
+    margin-left: 10px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.prefijo {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-left: 40px;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+
+#celular{
+    width: 300px;
+    height: 25px;
+    margin-left: 10px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+#comprar{
+    margin-top: 50px;
+    margin-left: 60%;
+    width: 100px;
+    height: 30px;
+    border-radius: 40px;
+    text-align: center;
+    background-color: #41A937;
+    cursor: pointer;
+}
+
+.error-mensaje {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 4px;
+    display: block;
+    text-align: center;
+}
+
+/* ===================== MODALES ===================== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.ventana-contenido {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: -2px 0 10px #34a853;
+}
+
+
+#usuario_o {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 40px 20px;
+}
+#usuario_o2 {
+  display: flex;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+
+.btn-usuario {
+  background-color: #34a853;
+  width: 80%;
+  margin-top: 10px;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-usuario:hover {
+  background-color: #2a8c42;
+}
+
+.oculto, .oculto-carrito {
+  font-size: 24px;
+  cursor: pointer;
+  float: right;
+  margin: 10px;
+}
+
+.carrito-header, .carrito-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.carrito-items .producto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+.carrito-total {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-comprar, .btn-vaciar {
+  width: 90%;
+  margin: 10px auto;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-comprar {
+  background-color: #34a853;
+  color: white;
+}
+
+.btn-vaciar {
+  background-color: #d9534f;
+  color: white;
+  width: 90%;
+}
+
+.btn-vaciar:hover {
+  background-color: #c9302c;
+}
+
+.ventana #inicio_pse{
+    background-color: #41A937;
+    text-align: center;
+    border-radius: 50px;
+    height: 20px;
+    cursor: pointer;
+    margin-top: 30px;
+    height: 30px;
+    width: 150px;
+}
+/* The Close Button */
+.close{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.modal {
+  display: none; /* Ocultos por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 400px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#btn-confirmar-pedido, #btn-cancelar-pedido{
+  display: inline-block;
+    padding: 8px 14px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+}
+
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+#modal-error .modal-content {
+  text-align: center;
+  border: 2px solid #d9534f; /* rojo */
+}
+#modal-error h2 {
+  color: #d9534f;
+}
+header p{
+  font-weight: bold;
+}

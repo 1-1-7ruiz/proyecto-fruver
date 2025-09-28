@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Productos</title>
+  <link rel="stylesheet" href="productos.css" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="header">
+    <div class="logo">
+        <img src="../Img/logo.jpg" alt="Logo" width="50" height="60" />
+        <h1>FRUVERSTYLE</h1>
+    </div>
+    </header>
+
+  <label>
+        <input type="checkbox">
+        <div class="toggle">
+            <span class="top_line common"></span>
+            <span class="middle_line common"></span>
+            <span class="bottom_line common"></span>
+        </div>
+        <div class="slide">
+            <h1>MENU</h1>
+            <ul>
+                
+                <li><a href="Administrador.html"><i class='bx bxs-home'></i>Inicio</a></li>
+                <li><a href="perfil.html"><i class='bx bxs-user'></i>Perfil</a></li>
+                <li><a href="usuarios.html"><i class='bx bxs-user-badge'></i>Usuarios</a></li>
+                <li><a href="productos.html"><i class='bx bxs-pear'></i>Productos</a></li>
+                <li><a href="ventas.html"><i class='bx bxl-venmo' ></i>Ventas</a></li>
+                
+            </ul>
+
+            
+
+            <h1>ACCIÓNES</h1>
+            <div class="search-box">
+                <i class='bx bx-search'></i>
+                <input type="text" id="find" placeholder="Buscar ">
+            </div>
+            <ul>
+                
+                <li><p id="nuevo_producto"><i class='bx bxs-message-alt-add' ></i>Añadir producto</p></li>
+                <li><p id="filtrar_productos"><i class='bx bx-filter' ></i>Filtrar</p></li>
+                <li><p id="Cerrar_sesion"><i class='bx bxs-log-out'></i>Cerrar sesión</p></li>
+                
+            </ul>
+
+            
+
+            
+            </div>
+    </label>
+
+  <main id="contenedor">
+    
+
+    <table class="tabla-productos">
+      <thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Modificar producto</th>
+        </tr>
+        </thead>
+        <tbody id="tbody_productos">
+            
+    </tbody>
+    </table>
+    </main>
+
+    <div id="usuario_p" class="ventana overlay" style="display: none;">
+    <div class="ventana-contenido">
+        <div id="logo_user"><span class="close">&times;</span></div>
+        <div id="usuario_o">
+        <p class="titulo">Admin</p>
+        <button class="btn-usuario"><a href="../admin/productos.html">Productos</a></button>
+        <button class="btn-usuario"><a href="../admin/usuarios.html">Usuarios</a></button>
+        <button class="btn-usuario"><a href="../admin/ventas.html">Ventas</a></button>
+        <p class="o">o</p>
+        <button class="btn-usuario"><a href="../principal/principal.html">Cerrar sesión</a></button>
+    </div>
+    </div>
+    </div>
+
+    <div id="modificar_p" class="ventana" style="display: none;">
+    <div class="ventana-producto">
+        <span class="close">&times;</span>
+        <p id="titulo">Datos del producto</p>
+        <form id="form">
+        <label class="label" for="codigo">N° código</label>
+        <input type="number" id="codigo" class="input" placeholder="Código del producto" />
+        
+        <label class="label" for="name">Producto</label>
+        <input type="text" id="name" class="input" placeholder="Ingresa el nombre" required />
+        
+        <label class="label" for="precio">Precio</label>
+        <input type="number" id="precio" class="input" placeholder="Precio del producto" required />
+        
+        <label class="label" for="cantidad">Cantidad</label>
+        <input type="number" id="cantidad" class="input" placeholder="Cantidad" required />
+        
+        <label class="label" for="categoria">Categoría</label>
+        <select id="categoria">
+        <option value="1">Fruta</option>
+        <option value="2">Verdura</option>
+        <option value="3">Leguminosa</option>
+        </select>
+        
+        <label class="label" for="estado">Estado</label>
+        <select id="estado">
+        <option value="Activo">Activo</option>
+        <option value="Inactivo">Inactivo</option>
+        </select>
+
+        
+
+        <div style="text-align: center;">
+        <label for="imagenProducto">Imagen</label><br />
+        <img id="previewImg" alt="Imagen producto" style="width: 100px; height: 100px; object-fit: cover; border: 1px solid #ccc;" /><br />
+        <input type="file" id="imagenProducto" accept="image/*" style="display: none;" />
+        <button type="button" onclick="document.getElementById('imagenProducto').click()">Cambiar imagen 🔄</button>
+        </div>
+
+        <div id="botones">
+        <button class="cancelar" type="button" id="cancelar">Cancelar</button>
+        <button type="submit" id="crear">Crear producto</button>
+        <button class="cancelar" type="button" id="eliminar">
+          Eliminar producto
+        </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!--busqueda avanzada-->
+  <div id="busque_avanzada" class="avanzada">
+  <div class="filtrar-avanzada">
+    <span class="cerrar">&times;</span>
+    <h2 id="busque">Búsqueda avanzada</h2>
+
+    <div class="b_principal">
+      <label class="label" for="nombre">Nombre</label>
+      <input type="text" name="nombre" class="nombre_b" />
+    </div>
+
+    <div class="filtros-grid">
+      <div class="campo">
+        <label class="label" for="categoria">Categoría</label>
+        <select id="categoria_busqueda">
+          <option value="0">--</option>
+          <option value="1">Fruta</option>
+          <option value="2">Verdura</option>
+          <option value="3">Leguminosa</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label class="label" for="precio_max">Precio máx.</label>
+        <input type="number" id="precio_max" />
+      </div>
+
+      <div class="campo">
+        <label class="label" for="precio_min">Precio mín.</label>
+        <input type="number" id="precio_min" />
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn cancelar" type="button">Cancelar</button>
+      <button class="btn buscar" id="btnBuscarAvanzada" type="submit">Buscar</button>
+      <button class="btn limpiar" type="button" id="limpiar-filtros">Limpiar</button>
+    </div>
+  </div>
+</div>
+
+
+  <footer>Productos</footer>
+  <script src="productos.js"></script>
+
+
+</body>
+</html>
+

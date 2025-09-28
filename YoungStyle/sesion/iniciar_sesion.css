@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(../Img/img_sesion.jpg) no-repeat center center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.box {
+  position: relative;
+  width: 380px;
+  background: #1c1c1c;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+form {
+  position: relative;
+  padding: 50px 40px;
+  background: rgba(34, 34, 34, 0.85);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+form h2 {
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+.inputBox {
+  position: relative;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.inputBox input {
+  width: 100%;
+  padding: 12px 10px;
+  background: #333;
+  border: 1px solid #666;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1em;
+  outline: none;
+  transition: 0.3s;
+}
+
+.inputBox input:focus {
+  border-color: #34a853;
+}
+
+.inputBox .error {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.75em;
+  color: #ff6b6b;
+  visibility: hidden;
+  height: 1em;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.links a,
+.links p {
+  font-size: 0.75em;
+  color: #8f8f8f;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.links a:hover {
+  color: #fff;
+}
+
+input[type="submit"] {
+  border: none;
+  outline: none;
+  background: #fff;
+  color: #222;
+  padding: 10px 25px;
+  margin-top: 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9em;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+  transform: scale(1.05);
+}
+
+input[type="submit"]:active {
+  opacity: 0.8;
+}
+
+/* Modal Recuperar contraseña */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#recuperar_c {
+  display: none;
+  color: aliceblue;
+  background-color: rgba(218, 167, 167, 0.3);
+  
+
+}
+
+#recuperar_contra {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 40px 20px;
+  
+}
+
+.oculto {
+  font-size: 24px;
+  cursor: pointer;
+  float: right;
+  margin: 10px;
+}
+
+#recuperar {
+  cursor: pointer;
+}
+/*MOstar contraseña*/
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px; /* espacio para el icono */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.password-container .toggle-password {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #666;
+}
+.password-container .toggle-password:hover {
+  color: #000;
+}

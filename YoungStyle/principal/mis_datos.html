@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mis_datos.css">
+       <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+    <header id="encabezado">
+        <img id="logo" src="../Img/logo.jpg" alt="" width="50" height="60">
+        <h5>FRUVERSTYLE</h5>
+        <p id="inicio"><a href="../principal/principal.html">Inicio</a></p>
+        <p id="sobre_nosotros"><a href="../quienes_somos/nuestra_historia.html">Sobre Nosotros</a></p>
+        <button class="button" id="usuario_opciones">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="0" fill="currentColor" stroke="currentColor" class="icon">
+        <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"></path>
+        </svg>
+        </button>
+    </header>
+
+    <div>
+      <button id="atras" class="card-button material-symbols-outlined" onclick="window.location.href='../principal/principal.html'">arrow_back</button>
+    </div>
+
+    <div id="contenedor">
+          
+        
+        <div id="datos">
+            <h1>Datos de usuario</h1>
+            
+            <p>Nombre</p>
+            <input id="nombre" type="text" readonly>
+            <p >Apellidos</p>
+            <input id="apellido" type="text" readonly>
+            <p >Telefono</p>
+            <input id="telefono" type="text">
+            <p>direccion</p>
+            <input id="direccion" type="text">
+            <p>Correo electronico</p>
+            <input id="email" type="text"><br>
+            <p id="contraseña"><a href="#" id="abrirModal">Cambiar contraseña</a></p>
+        </div>
+        
+
+    </div>
+    <div id="modificar_u" class="ventana">
+    <div id="modificar_contra_form" class="ventana-usuario">
+      <span class="close" id="cerrarModificar">&times;</span>
+      <h1 id="titulo">Cambio de contraseña</h1>
+      <p>Contraseña actual</p>
+      <input type="password" id="actualContra"><br>
+      <p>Ingresa nueva contraseña</p>
+      <input type="password" id="nueva">
+      <p>Confirmar contraseña</p>
+      <input type="password" id="confirmar"><br>
+      <p class="error" id="mensajeError"></p><br>
+      <button id="realizar">Realizar</button>
+    </div>
+  </div>
+
+  <!-- Modal Confirmación -->
+  <div id="confirmar_c" class="ventana">
+    <div class="ventana-usuario">
+      <span class="close" id="cerrarConfirmar">&times;</span>
+      <img src="../Img/chulo.jpg" alt="" width="70" height="70">
+      <h1 id="titulo">¡Tu contraseña se cambió con éxito!</h1>
+      <button id="inicio" onclick="window.location.href='../principal/principal.html'">Volver al inicio</button>
+    </div>
+  </div>
+
+      <footer class="footer">
+    <div class="footer-section contacto">
+        <p><strong>CONTACTO</strong></p>
+        <p>3023849326</p>
+        <p>inversionescamfruver@gmail.com</p>
+    </div>
+
+    <div class="footer-section redes">
+        <p><strong>Síguenos en:</strong></p>
+        <img src="../Img/Instagram.jpg".jpg alt="Instagram" width="40" height="40">
+        <img src="../Img/Facebook.jpg" alt="Facebook" width="40" height="40">
+    </div>
+
+    <div class="footer-section direccion">
+        <p><strong>DIRECCIÓN</strong></p>
+        <p>Parque principal Fredonia-Antioquia</p>
+    </div>
+    </footer>
+
+    <div id="usuario_v" class="vezntana overlay" style="display: none;">
+            <div class="ventana-contenido">
+            <div id="logo_user">
+                <span class="oculto">&times;</span>
+            </div>
+            <div class="opciones">
+                <div id="usuario_o">
+                <button id="iniciar_sesion" class="btn-usuario"><a href="../sesion/sesion_cliente.html">Iniciar sesión</a></button>
+                <button id="registrarse" class="btn-usuario"><a href="../sesion/registrarse.html">Registrarse</a></button>
+                </div>
+                <div id="usuario_o2">
+                <h3>Cliente</h3>
+                <button id="Configuraciones" class="btn-usuario"><a href="../principal/mis_datos.html">Mis datos -></a></button>
+                
+                <h3>o</h3>
+                <button id="cerrar_sesion" class="btn-usuario"><a href="../principal/principal.html">Cerrar sesion</a></button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    
+
+  <script src="mis_datos.js"></script>
+
+  </script>
+
+</body>
+</html>

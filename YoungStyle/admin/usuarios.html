@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios - CAMFRUVER</title>
+    <link rel="stylesheet" href="usuarios.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+    <header class="header">
+    <div class="logo">
+        <img src="../Img/logo.jpg" alt="Logo" width="50" height="60" />
+        <h1>FRUVERSTYLE</h1>
+    </div>
+    
+    </div>
+  </header>
+    
+    <label>
+        <input type="checkbox">
+        <div class="toggle">
+            <span class="top_line common"></span>
+            <span class="middle_line common"></span>
+            <span class="bottom_line common"></span>
+        </div>
+        <div class="slide">
+            <h1>MENU</h1>
+            <ul>
+                
+                <li><a href="Administrador.html"><i class='bx bxs-home'></i>Inicio</a></li>
+                <li><a href="perfil.html"><i class='bx bxs-user'></i>Perfil</a></li>
+                <li><a href="usuarios.html"><i class='bx bxs-user-badge'></i>Usuarios</a></li>
+                <li><a href="productos.html"><i class='bx bxs-pear'></i>Productos</a></li>
+                <li><a href="ventas.html"><i class='bx bxl-venmo' ></i>Ventas</a></li>
+            </ul>
+
+            <h1>ACCIÓNES</h1>
+            <ul>
+                
+                <li><p id="nuevo_usuario"><i class='bx bxs-message-alt-add' ></i>Añadir usuario</p></li>
+                <li><p id="filtrar_usuarios"><i class='bx bx-filter' ></i>Filtrar</p></li>
+                <li><p id="cerrar_sesion"><i class='bx bxs-log-out'></i>Cerrar sesión</p></li>
+            </ul>
+
+            <div class="search-box">
+                <i class='bx bx-search'></i>
+                <input type="text" id="find" placeholder="Buscar usuario">
+            </div>
+            </div>
+    </label>
+
+
+    <main id="contenedor-usuarios">
+        
+
+        <table class="tabla-usuarios" id="tabla_usuario">
+            <thead>
+                <tr>
+                    <th>N° Documento</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Correo electrónico</th>
+                    <th>Estado</th>
+                    <th>Rol/es</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tbody_usuarios">
+                <!-- Las filas de usuarios se agregarán aquí dinámicamente -->
+            </tbody>
+        </table>
+    </main>
+
+    
+
+    <div id="modificar_u" class="ventana" style="display: none;">
+        <div class="ventana-usuario">
+            <span class="close">&times;</span>
+            <p id="titulo">Datos de usuario</p>
+            <form id="form">
+                <label for="documento" class="label">N° Documento</label>
+                <input type="number" name="cedula" id="documento" class="input" placeholder="Ingresa El número de documento" required>
+                <label for="nombres" class="label">Nombres</label>
+                <input type="text" name="name" id="nombres" class="input" placeholder="Ingresa los nombres" required>
+                <label for="apellidos" class="label">Apellidos</label>
+                <input type="text" name="last_name" id="apellidos" class="input" placeholder="Ingresa los apellidos" required>
+                <label for="telefono" class="label">Teléfono/Celular</label>
+                <input type="number" name="phone" id="telefono" class="input" placeholder="Ingresa el número de teléfono" required>
+                <label for="email" class="label">Correo electrónico</label>
+                <input type="email" name="email" id="email" class="input" placeholder="Ingresa el correo electrónico" required>
+                
+                <label for="direccion" class="label">Dirección del usuario</label>
+                <input type="text" name="direccion" id="direccion" class="input" placeholder="Ingresa la dirección del usuario">
+                <label for="contraseña" class="label">Contraseña del usuario</label>
+                <input type="password" name="password" id="contraseña" class="input" placeholder="Contraseña del usuario" required>
+                <label for="id_rol" class="label">Rol</label>
+                <select name="rol" id="id_rol" required>
+                    <option value="cliente">Cliente</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <label for="estado" class="label">Estado</label>
+                <select name="estado" id="estado" required>
+                    <option value="Activo">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                </select>
+                <div id="botones">
+                    <button type="button" id="cancelar">Cancelar</button>
+                    <button type="submit" id="crear">Crear usuario</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!--busqueda avanzada-->
+    <div id="busque_avanzada" class="avanzada">
+    <div class="filtrar-avanzada">
+        <span class="cerrar">&times;</span>
+        <h2 id="busque">Búsqueda avanzada</h2>
+        <div class="b_principal">
+        <label class="label" for="nombre">Nombre</label>
+        <input type="text" name="nombre" class="nombre_b" />
+        </div>
+
+        <div class="filtros-grid">
+        <div class="campo">
+            <label class="label" for="estado">Estado</label>
+            <select id="estado_busqueda">
+            <option value="todos">Todos</option>
+            <option value="activo">Activo</option>
+            <option value="inactivo">Inactivo</option>
+            </select>
+        </div>
+
+        <div class="campo">
+            <label class="label" for="rol">Rol</label>
+            <select id="rol_busqueda">
+            <option value="todos">Todos</option>
+            <option value="cliente">Cliente</option>
+            <option value="admin">Administrador</option>
+            </select>
+        </div>
+
+        
+        </div>
+
+        <div class="form-actions">
+        <button class="btn cancelar" type="button">Cancelar</button>
+        <button class="btn buscar" id="btnBuscarAvanzada" type="submit">Buscar</button>
+        <button class="btn limpiar" type="button" id="limpiar-filtros">Limpiar</button>
+        </div>
+    </div>
+    </div>
+
+    
+
+    <footer>Usuarios</footer>
+
+    <script src="usuario.js"></script>
+</body>
+</html>

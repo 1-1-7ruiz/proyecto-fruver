@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+     
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="principal.css">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <header class="header">
+    <div class="logo">
+    <img src="../Img/logo.jpg" alt="Logo" width="50" height="60">
+    <h1>FRUVERSTYLE</h1>
+    </div>
+    <p class="h"><a href="../principal/principal.html">Inicio</a></p>
+    <p class="h"><a href="../quienes_somos/nuestra_historia.html">¿Quienes somos?</a></p>
+    <div class="iconos">
+        <div class="buscador">
+            <button id="btn_buscar" class="button" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" aria-hidden="true" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor" class="icon">
+            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+            </button>
+            <input type="text" id="input_busqueda" placeholder="Buscar..." class="hidden">
+        </div>
+        
+            <span class="precio">$ 0</span>
+        <button id="abrir_carrito" class="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor" class="icon">
+            <circle r="1" cy="21" cx="9"></circle>
+            <circle r="1" cy="21" cx="20"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+        </button>
+        <button id="usuario_opciones" class="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="0" fill="currentColor" stroke="currentColor" class="icon">
+            <path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"></path>
+            </svg>
+        </button>
+    </div>
+    </header>
+    <div class="slider-box">
+        <ul>
+
+            <li>
+                <img src="../Img/1_1.jpg" alt="imagen" id="imagen_inicio">
+
+                
+            </li>
+            <li>
+
+                <img src="../Img/imagen2inicio.jpeg" alt="imagen" id="imagen_inicio">
+                
+            </li>
+            <li>
+                <img src="../Img/Design - Playground.jpeg" alt="imagen" id="imagen_inicio">
+                
+            </li>
+        </ul>
+    </div>
+    
+
+
+    <section class="productos" id="contenedor-frutas">
+        <div class="cuadro-frutas">
+        Frutas 
+        </div>
+        
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                
+            
+            </div>
+        </div>
+    <a href="frutas.html" id="ver_masfrutas">Ver mas</a>
+
+
+
+        
+    </section>
+
+    <section class="productos2" id="contenedor-verduras">
+        <div class="cuadro-verduras">
+        Verduras 
+        </div>
+            
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    
+                </div>
+            </div>
+        
+        <a href="verduras.html" id="ver_masfrutas">Ver mas</a>  
+    </section>
+    
+    
+    <section class="productos3" id="contenedor-leguminosas">
+         <div class="cuadro-leguminosas">
+       leguminosas
+       
+        </div>
+            
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    
+                
+            </div>
+            
+            </div>
+            <a href="leguminosas.html" id="ver_masfrutas">Ver mas</a>
+    </section>
+    
+    
+    <footer class="footer">
+    <div class="footer-section contacto">
+        <p><strong>CONTACTO</strong></p>
+        <p>3023849326</p>
+        <p>inversionescamfruver@gmail.com</p>
+    </div>
+
+    <div class="footer-section redes">
+        <p><strong>Síguenos en:</strong></p>
+        <a href="https://www.instagram.com/fruverproyecto072/"><img src="../Img/Instagram.jpg".jpg alt="Instagram" width="40" height="40"></a>
+        
+    </div>
+
+    <div class="footer-section direccion">
+        <p><strong>DIRECCIÓN</strong></p>
+        <p>Parque principal Fredonia-Antioquia</p>
+        </a>
+    </div>
+    </footer>
+    
+    <script src="principal.js"></script>
+    
+            <div id="usuario_v" class="vezntana overlay" style="display: none;">
+            <div class="ventana-contenido">
+            <div id="logo_user">
+                <span class="oculto">&times;</span>
+            </div>
+            <div class="opciones">
+                <div id="usuario_o">
+                <button id="iniciar_sesion" class="btn-usuario"><a href="../sesion/sesion_cliente.html">Iniciar sesión</a></button>
+                <button id="registrarse" class="btn-usuario"><a href="../sesion/registrarse.html">Registrarse</a></button>
+                </div>
+                <div id="usuario_o2">
+                <h3>Cliente</h3>
+                <button id="Configuraciones" class="btn-usuario"><a href="../principal/mis_datos.html">Mis datos -></a></button>
+                
+                <h3>o</h3>
+                <button id="cerrar_sesion" class="btn-usuario"><a href="../principal/principal.html">Cerrar sesion</a></button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+<!-- Modal Carrito -->
+        <div id="carrito_v" class="ventana overlay" style="display: none;">
+        <div class="ventana-contenido carrito-contenido">
+        <div class="carrito-header">
+            <span>3 Productos</span>
+            
+            <button class="btn-expandir" onclick="toggleExpandirCarrito()">⛶ Expandir</button>
+            <span class="oculto-carrito">&times;</span>
+            </div>
+            <div class="carrito-items">
+            <div class="producto">
+                <img src="../Img/papa.jpg" alt="Papa capira" width="50">
+                <p>Papa capira.</p>
+                <p>$10.000</p>
+                <div>
+                <button>-</button>
+                <span>2</span>
+                <button>+</button>
+                </div>
+                <span>Cantidad</span>
+                <button>🗑</button>
+            </div>
+      <!-- Repite productos aquí -->
+            </div>
+            <div class="carrito-total">
+            <p>Total: <strong>$19.500</strong></p>
+            <button class="btn-comprar" onclick="enviarCarritoAlBackend()">Comprar</button>
+
+            </div>
+        </div>
+        </div>
+</body>
+</html>

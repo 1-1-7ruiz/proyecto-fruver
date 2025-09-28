@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - FRUVERSYS</title>
+    <link rel="stylesheet" href="perfil.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body class="administrador">
+
+    <header class="header">
+        <div class="logo">
+            <img src="../Img/logo.jpg" alt="Logo" width="50" height="60" />
+            <h1>FRUVERSTYLE / Administrador</h1>
+
+        </div>
+    </header>
+    
+    <label>
+        <input type="checkbox">
+        <div class="toggle">
+            <span class="top_line common"></span>
+            <span class="middle_line common"></span>
+            <span class="bottom_line common"></span>
+        </div>
+        <div class="slide">
+            <h1>MENU</h1>
+            <ul>
+                <li><a href="Administrador.html"><i class='bx bxs-home'></i>Inicio</a></li>
+                <li><a href="perfil.html"><i class='bx bxs-user'></i>Perfil</a></li>
+                
+            </ul>
+
+            <h1>ACCIÓNES</h1>
+            <ul>
+                <li><p id="cerrar_sesion"><i class='bx bxs-log-out'></i>Cerrar sesión</p></li>
+            </ul>
+        </div>
+    </label>
+
+    <main id="contenido">
+        <section class="bienvenida">
+            <h2>Perfil de Administración</h2>
+        </section>
+
+    
+        <section class="tarjetas">
+    <form class="tarjeta tarjeta-usuarios" id="form-perfil">
+        <i class='bx bxs-user'></i><br>
+        
+        <label>Nombre</label><br>
+        <input type="text" id="nombre" name="nombre" value="Juan Esteban Ruiz" required><br>
+
+        <label>Correo</label><br>
+        <input type="email" id="email" name="correo" value="fruverproyecto072@gmail.com" required><br>
+
+        <label>Teléfono</label><br>
+        <input type="tel" id="telefono" name="telefono" value="3107258789" required><br>
+
+        <div class="acciones">
+            <p id="contraseña"><a href="#" id="abrirModal">Cambiar contraseña</a></p>
+            
+        </div>
+    </form>
+</section>
+    </main>
+
+    
+    <div id="modificar_u" class="ventana">
+    <div id="modificar_contra_form" class="ventana-usuario">
+    <span class="close" id="cerrarModificar">&times;</span>
+    <h1 id="titulo">Cambio de contraseña</h1>
+    <p>Contraseña actual</p>
+    <input type="password" id="actualContra"><br>
+    <p>Ingresa nueva contraseña</p>
+    <input type="password" id="nueva">
+    <p>Confirmar contraseña</p>
+    <input type="password" id="confirmar"><br>
+    <p class="error" id="mensajeError"></p><br>
+    <button id="realizar">Realizar</button>
+    </div>
+    </div>
+
+<!-- Modal Confirmación -->
+    <div id="confirmar_c" class="ventana">
+        <div class="ventana-usuario">
+        <span class="close" id="cerrarConfirmar">&times;</span>
+        <img src="../Img/chulo.jpg" alt="" width="70" height="70">
+        <h1 id="titulo">¡Tu contraseña se cambió con éxito!</h1>
+        <button id="inicio" onclick="window.location.href='../sesion/sesion_cliente.html'">Volver al inicio</button>
+        </div>
+    </div>
+    <script src="perfil.js"></script>
+
+</body>
+</html>

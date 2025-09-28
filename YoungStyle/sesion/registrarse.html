@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fruvestyle</title>
+  <link rel="stylesheet" href="register.css" />
+</head>
+<body>
+  <div class="box">
+  <div class="aside">
+    <div class="brand">
+      <h3>Fruvestyle</h3>
+      <p>Regístrate y descubre productos frescos y ofertas exclusivas.</p>
+    </div>
+  </div>
+
+  <form id="register_form" novalidate>
+    <h2>Crear cuenta</h2>
+    <p class="lead">Completa tus datos para empezar.</p>
+
+    <div class="form-grid">
+      <div class="inputBox">
+        <label for="documento">N° Documento</label>
+        <input type="number" id="documento" name="documento" required />
+        <small class="error" id="documento-error"></small>
+      </div>
+
+      <div class="inputBox">
+        <label for="telefono">N° Celular</label>
+        <input type="number" id="telefono" name="telefono" required />
+        <small class="error" id="phone-error"></small>
+      </div>
+
+      <div class="inputBox">
+        <label for="nombres">Nombres</label>
+        <input type="text" id="nombres" name="nombres" required />
+        <small class="error" id="name-error"></small>
+      </div>
+
+      <div class="inputBox">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" id="apellidos" name="apellidos" required />
+        <small class="error" id="last_name-error"></small>
+      </div>
+
+      <div class="inputBox w-full">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required />
+        <small class="error" id="email-error"></small>
+      </div>
+
+      <div class="inputBox w-full">
+        <label for="direccion">Dirección</label>
+        <input type="text" id="direccion" name="direccion" required />
+        <small class="error" id="direccion-error"></small>
+      </div>
+
+      <div class="inputBox">
+        <label for="contraseña">Contraseña</label>
+        <input type="password" id="contraseña" name="contraseña" required />
+        <small class="error" id="password-error"></small>
+      </div>
+
+      <div class="inputBox">
+        <label for="re_password">Confirmar contraseña</label>
+        <input type="password" id="re_password" name="re_password" required />
+        <small class="error" id="re_password-error"></small>
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="../sesion/sesion_cliente.html">¿Ya tienes cuenta? Inicia sesión</a>
+      <span>Al registrarte aceptas los términos</span>
+    </div>
+
+    <button type="submit" class="btn">Registrarse</button>
+  </form>
+</div>
+
+
+
+  <div id="registro-exitoso" class="ventana" style="display: none;">
+    <div class="ventana-contenido">
+      <span class="close">&times;</span>
+      <p>¡Registro exitoso!</p>
+      <br>
+      <br>
+      <p>Por favor revisa tu gmail. te enviamos un enlace de verificacion</p>
+
+      <button id="iniciar_sesion">Iniciar sesion</button>
+    </div>
+  </div>
+
+  <script src="register.js"></script>
+</body>
+</html>
